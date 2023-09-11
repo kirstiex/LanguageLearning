@@ -14,7 +14,6 @@ import QuizList from './components/QuestionList';
 import AddQuestion from './components/AddQuestion';
 import './styles.css';
 import QuestionListAdmin from './components/QuestionListAdmin';
-import Quiz from './components/Quiz';
 
 
 function App() {

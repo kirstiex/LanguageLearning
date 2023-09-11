@@ -1,21 +1,21 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-import { useHistory, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../AuthContext';
 import Card from 'react-bootstrap/Card';
 import '../styles.css';
 
 function Dashboard() {
-  const { isLoggedIn, setIsLoggedIn } = useAuth(); 
-  const history = useHistory();
+  const { setIsLoggedIn } = useAuth(); 
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     axios.get('http://localhost:5001/logout')
       .then(response => {
         console.log(response.data.message);
         setIsLoggedIn(false); // Clear user's login status
-        history.push('/login');
+        navigate('/login');
       })
       .catch(error => {
         console.error('Logout error:', error.response ? error.response.data.message : error.message);

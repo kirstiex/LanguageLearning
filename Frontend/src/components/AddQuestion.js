@@ -3,7 +3,7 @@ import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import '../styles.css';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 function AddQuestion() {
@@ -13,7 +13,7 @@ function AddQuestion() {
   const [difficulty, setDifficulty] = useState('');
   const [message, setMessage] = useState('');
 
-  const history = useHistory();
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
@@ -38,7 +38,7 @@ function AddQuestion() {
   };
 
   const handleBackToDashboard = () => {
-    history.push('/dashboard'); 
+    navigate('/dashboard'); 
   };
 
   return (

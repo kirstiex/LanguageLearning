@@ -3,14 +3,14 @@ import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleLogin = () => {
     axios.post('http://localhost:5001/login', {
@@ -21,7 +21,7 @@ function Login() {
         console.log("Login successful:", response.data.message);
         setMessage('Login successful!'); // Set success message
         console.log('Redirecting to dashboard...');
-        history.push('/dashboard');
+        navigate('/dashboard');
       })
       .catch(error => {
         console.error('Login error:', error.response.data.message);

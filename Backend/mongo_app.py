@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash, jsonify
 from pymongo import MongoClient
-import re
-import bcrypt
 from bson import ObjectId
 from flask_cors import CORS
+import re
+import bcrypt
+
 
  
 app = Flask(__name__)

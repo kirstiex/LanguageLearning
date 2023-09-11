@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styles.css';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 
 function QuestionList() {
-  const [questions, setQuestions] = useState([]);
-  const history = useHistory();
+  const [english, setCards] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get('http://localhost:5001/card/list')
       .then(response => {
-        setQuestions(response.data);
+        setCards(response.data);
       })
       .catch(error => {
         console.error('Error fetching cards:', error);
@@ -25,7 +25,7 @@ function QuestionList() {
   };
 
   const handleBackToDashboard = () => {
-    history.push('/dashboard');
+    navigate('/dashboard');
   };
 
 
@@ -36,7 +36,7 @@ function QuestionList() {
       </Button>
 
       <h2>Cards</h2>
-      {questions.map((english, index) => (
+      {english.map((english, index) => (
         <div
           key={index}
           className={`flip-card ${flippedCard === index ? 'flipped' : ''}`}

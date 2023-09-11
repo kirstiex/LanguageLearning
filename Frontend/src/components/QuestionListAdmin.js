@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function QuestionListAdmin() {
   const [english, setCards] = useState([]);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get('http://localhost:5001/card/list')
@@ -35,7 +35,7 @@ function QuestionListAdmin() {
   };
 
   const handleBackToDashboard = () => {
-    history.push('/dashboard'); // Navigate back to dashboard
+    navigate('/dashboard'); // Navigate back to dashboard
   };
 
   return (

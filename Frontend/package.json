@@ -1,5 +1,5 @@
 {
-  "name": "fun-quiz-react-app",
+  "name": "language-learning-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -18,7 +18,7 @@
   },
   "scripts": {
     "build": "react-scripts build --openssl-legacy-provider",
-    "start": "react-scripts start --openssl-legacy-provider",
+    "start": "react-scripts --openssl-legacy-provider start",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
