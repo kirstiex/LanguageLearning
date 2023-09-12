@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import axios from 'axios';
 import { AuthProvider } from './AuthContext';
 
@@ -15,7 +15,6 @@ import AddQuestion from './components/AddQuestion';
 import './styles.css';
 import QuestionListAdmin from './components/QuestionListAdmin';
 
-
 function App() {
   const [user, setUser] = useState(null);
 
@@ -30,7 +29,6 @@ function App() {
         console.error("Error fetching user data:", error);
       });
   }, []);
-
 
   return (
     <Router>
@@ -48,7 +46,7 @@ function App() {
           <div className="App">
             <Navbar expand="lg" className="bg-body-tertiary">
               <Container>
-                <Navbar.Brand as={Link} to="/">Fun Interactive Learning Quiz</Navbar.Brand>
+                <Navbar.Brand as={Link} to="/">Language Learning Platform</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                   <Nav>
@@ -64,34 +62,23 @@ function App() {
             </Navbar>
 
             <Container className="mt-4">
-              <Route path="/" exact>
-                <div>
-                  <h2>HOME</h2>
-                  {user ? (
-                    <p>WELCOME TO OUR PAGE</p>
-                  ) : (
-                    <p>Please register or log in.</p>
-                  )}
-                </div>
-              </Route>
+            <Routes>
+
               <Route path="/register" component={Registration} />
               <Route path="/login" component={Login} />
-              <Route path="/dashboard">
-                <Dashboard user={user} setUser={setUser} />
-              </Route>
-              <Route path="/card-list">  <QuizList /> </Route>
-              <Route path="/add-card"> <AddQuestion /></Route>
-              <Route path="/admin-card-list" ><QuestionListAdmin /></Route>
-            </Container>
+              <Route path="/dashboard" render={(props) => <Dashboard {...props} user={user} setUser={setUser} />} />
+              <Route path="/card-list" component={QuizList} />
+              <Route path="/add-card" component={AddQuestion} />
+              <Route path="/admin-card-list" component={QuestionListAdmin} />
+              </Routes>
+              </Container>
           </div>
-
         </div>
         <footer className="app-footer">
           <p>App made by: </p>
         </footer>
       </AuthProvider>
     </Router>
-
   );
 }
 

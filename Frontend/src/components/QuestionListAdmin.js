@@ -17,8 +17,6 @@ function QuestionListAdmin() {
       });
   }, []);
 
-
-
   const handleDeleteQuestion = (question) => {
     axios.post('http://localhost:5001/card/delete', { english }, {
       headers: {

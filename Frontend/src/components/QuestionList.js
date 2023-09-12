@@ -28,7 +28,6 @@ function QuestionList() {
     navigate('/dashboard');
   };
 
-
   return (
     <div>
       <Button variant="outline-secondary" onClick={handleBackToDashboard} className="sticky-button">
@@ -49,19 +48,12 @@ function QuestionList() {
             <div className="flip-card-front">
               <strong> </strong> {english.translation}
               <br />
-
             </div>
           </div>
         </div>
       ))}
-
-
     </div>
   );
 }
 
 export default QuestionList;
-
-
-
-

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-
 import { useNavigate } from 'react-router-dom';
 
 function Login() {
@@ -62,16 +61,15 @@ function Login() {
               onChange={e => setPassword(e.target.value)}
             />
           </Form.Group>
-          <br></br>
+          <br />
           <Button variant="outline-secondary" onClick={handleLogin}>
             Login
           </Button>
-
-
           <p>{message}</p>
         </Form>
       </div>
     </div>
   );
-};
+}
+
 export default Login;

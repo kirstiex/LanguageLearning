@@ -7,7 +7,7 @@ import Card from 'react-bootstrap/Card';
 import '../styles.css';
 
 function Dashboard() {
-  const { setIsLoggedIn } = useAuth(); 
+  const { setIsLoggedIn } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -15,7 +15,7 @@ function Dashboard() {
       .then(response => {
         console.log(response.data.message);
         setIsLoggedIn(false); // Clear user's login status
-        navigate('/login');
+        navigate('/login'); // Use navigate to programmatically navigate
       })
       .catch(error => {
         console.error('Logout error:', error.response ? error.response.data.message : error.message);
@@ -44,7 +44,7 @@ function Dashboard() {
               </Card.Body>
             </Card>
           </Link>
-          <br/>
+          <br />
           <Link to="/card-list" className="dashboard-card-link">
             <Card className="dashboard-card">
               <Card.Body>
@@ -53,7 +53,7 @@ function Dashboard() {
               </Card.Body>
             </Card>
           </Link>
-          <br/>
+          <br />
           <Link to="/admin-card-list" className="dashboard-card-link">
             <Card className="dashboard-card">
               <Card.Body>
@@ -62,7 +62,7 @@ function Dashboard() {
               </Card.Body>
             </Card>
           </Link>
-      <br/>
+          <br />
           <Link to="/card" className="dashboard-card-link">
             <Card className="dashboard-card">
               <Card.Body>
@@ -71,7 +71,7 @@ function Dashboard() {
               </Card.Body>
             </Card>
           </Link>
-          <br/>
+          <br />
 
         </div>
 
@@ -80,9 +80,4 @@ function Dashboard() {
   );
 }
 
-
-
 export default Dashboard;
-
-
-

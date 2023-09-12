@@ -1,1 +1,0 @@
-# Fun-Quiz-Platform-Backend

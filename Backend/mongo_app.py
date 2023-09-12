@@ -8,7 +8,7 @@ import bcrypt
 
  
 app = Flask(__name__)
-CORS(app) # i do not know if this chaged anything but feel free to take out
+CORS(app, resources={r"/api/*": {"origins": "http://localhost:3001"}}) # i do not know if this chaged anything but feel free to take out
 app.secret_key = 'xyzsdfg'
 
 # Initialize MongoDB client
@@ -95,10 +95,10 @@ def register():
             'last_name': last_name,
             'username': username,
             'email': email,
-            'password': hashed_password  # Store the hashed password as bytes
+            'password': hashed_password 
         }
         users_collection.insert_one(user_data)
-        return jsonify({"message": "You have successfully registered!"}), 201  # Created status code
+        return jsonify({"message": "You have successfully registered!"}), 201 
 
 #Questions Endpoint
 #Create Question
@@ -167,7 +167,7 @@ def get_card_list():
 
     user = users_collection.find_one({'_id': ObjectId(session['user_id'])})
     
-    cards = list(cards_collection.find({}))  # Fetch all questions from the collection
+    cards = list(cards_collection.find({}))  
     cards_list = []
 
     for english in english:
