@@ -9,6 +9,7 @@
         .card-flip {
             position: relative;
             perspective: 1000px;
+            cursor: pointer; /* Add cursor pointer to indicate clickability */
         }
 
         .card-inner {
@@ -34,7 +35,7 @@
             transform: rotateY(180deg);
         }
 
-        .card:hover .card-inner {
+        .card-clicked .card-inner {
             transform: rotateY(180deg);
         }
     </style>
@@ -42,14 +43,11 @@
 
 <body>
     {% include 'nav_menu.html' %}
-
     <div class="container mt-5">
-        <!-- Display Search Results -->
-
         <div class="row">
             <div class="col-md-10 offset-md-1">
                 <h2>Cards</h2>
-                    <div class="row">
+                <div class="row">
                     {% for card in cards %}
                     <div class="col-md-4 mt-4 card-flip">
                         <div class="card card-inner">
@@ -74,6 +72,16 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // JavaScript to handle card click
+        const cards = document.querySelectorAll('.card-flip');
+
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('card-clicked');
+            });
+        });
+    </script>
 </body>
 
 </html>
