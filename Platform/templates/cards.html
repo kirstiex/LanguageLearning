@@ -43,48 +43,56 @@
             transform: rotateY(180deg);
         }
 
-        .custom-shape-divider-bottom-1694687427 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
-}
+        /* Initially hide the delete button */
+        .delete-button {
+            display: none;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: red;
+            cursor: pointer;
+        }
 
-.custom-shape-divider-bottom-1694687427 svg {
-    position: relative;
-    display: block;
-    width: calc(144% + 1.3px);
-    height: 290px;
-}
+        .card:hover .delete-button {
+            /* Display the delete button on hover */
+            display: block;
+        }
 
-.custom-shape-divider-bottom-1694687427 .shape-fill {
-  fill:   #000;
-   
-}    
+        .delete-button:hover {
+            color: darkred;
+        }
     </style>
 </head>
 
 <body>
+    <!-- Include your navigation menu if needed -->
     {% include 'nav_menu.html' %}
+
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-10 offset-md-1">
                 <h2>Flashcards</h2>
                 <div class="row" style="height: 200px;">
+                    <!-- Sample cards loop -->
                     {% for card in cards %}
                     <div class="col-md-4 mt-4 card-flip">
                         <div class="card card-inner">
                             <div class="card-front">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ card.translation }}</h5>
+                                    <!-- Trash can logo (delete button) -->
+                                    <button class="delete-button" onclick="deleteCard(event)">&#128465;</button>
                                 </div>
                             </div>
                             <div class="card-back">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ card.english }}</h5>
+                                    <!-- Trash can logo (delete button) -->
+                                    <button class="tts" onclick="deleteCard(event)">Pronunciation</button>
+                                    <button class="delete-button" onclick="deleteCard(event)">&#128465;</button>
                                 </div>
                             </div>
                         </div>
@@ -95,14 +103,13 @@
         </div>
     </div>
 
+    <!-- Include your JavaScript libraries -->
+    <!-- <script src="your-js-libraries.js"></script> -->
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <div class="custom-shape-divider-bottom-1694687427">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
-        </svg>
-    </div>
+
     <script>
         // JavaScript to handle card click
         const cards = document.querySelectorAll('.card-flip');
@@ -112,6 +119,23 @@
                 card.classList.toggle('card-clicked');
             });
         });
+
+        // Function to handle card deletion
+        function deleteCard(event) {
+            event.stopPropagation(); // Stop the card click event propagation
+            // Implement your delete card logic here
+            // You can use the card data to identify and delete the card
+            conso
+            
+            
+            // Function to handle card deletion
+        function pronunciation(event) {
+            // Implement pronunciation
+            // You can use the card data to identify and delete the card
+
+            console.log("Playing Sounds");
+        }le.log("Card deleted.");
+        }
     </script>
 </body>
 
