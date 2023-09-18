@@ -4,12 +4,56 @@
 <head>
     <title>Cards</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight&family=Inter:wght@700&family=Lilita+One&family=Montserrat:wght@600;900&display=swap" rel="stylesheet">
+       
     <style>
         /* Additional CSS to style the flip effect */
+
+        h1, h2 {
+            font-family: 'Inter Tight', sans-serif;
+           font-size: 60px;    
+      }
+        body{
+            font-family: 'inter-tight', sans-serif;
+        }
+
+        .card{
+            border: none;
+        }
         .card-flip {
             position: relative;
+            height: 100%;
+            width: 100%;
             perspective: 1000px;
             cursor: pointer; /* Add cursor pointer to indicate clickability */
+        }
+       
+        .card-title{
+            font-family: 'Inter-tight', sans-serif;
+            font-size: 36px ;
+        }
+        .card-text{
+            font-family: 'Inter-tight', sans-serif;
+            font-size: 26px ;
+        }
+        
+        .card-add {
+            background: #1d1d1d;
+            color: white;
+            box-shadow: 1px 1px 5px #361656;
+            border-radius: 10px;
+            position: relative;
+            perspective: 1000px;
+            width: 100%;
+            height: 100%;
+            
+            backface-visibility: hidden;
+            padding-top: 10%;
+            text-align: center;
+            
+            
         }
 
         .card-inner {
@@ -25,22 +69,35 @@
             height: 100%;
             position: absolute;
             backface-visibility: hidden;
-            padding-top: 18%;
+            padding-top: 10%;
             text-align: center;
-            font-family: 'Roboto', sans-serif;
+            height: 100%;
+            width: 100%;
             
         }
 
         .card-front {
             transform: rotateY(0deg);
+            background: #1d1d1d;
+            color: white;
+            box-shadow: 1px 1px 5px #361656;
+            border-radius: 10px;
+            
         }
 
         .card-back {
             transform: rotateY(180deg);
+            background: #1d1d1d;
+            color: white;
+            box-shadow: 1px 1px 5px #361656;
+            border-radius: 10px;
+            
         }
 
         .card-clicked .card-inner {
             transform: rotateY(180deg);
+            height: 200px;
+            width: 300px;
         }
 
         /* Initially hide the delete button */
@@ -64,6 +121,125 @@
         .delete-button:hover {
             color: darkred;
         }
+
+        
+.custom-shape-divider-bottom-1694687427 {
+    position: fixed;
+    bottom: 0;
+    left:0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+    z-index: -1;
+}
+
+.custom-shape-divider-bottom-1694687427 svg {
+    position: relative;
+    display: block;
+    width: calc(144% + 1.3px);
+    height: 290px;
+    z-index: -1;
+}
+
+.custom-shape-divider-bottom-1694687427 .shape-fill {
+  fill:   #000;
+   
+}    
+
+        
+.button-20 {
+  appearance: button;
+  background-color: #932687;
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, .15), rgba(255, 255, 255, 0));
+  
+  border-radius: 1rem;
+  box-shadow: rgba(255, 255, 255, 0.15) 0 1px 0 inset,rgba(46, 54, 80, 0.075) 0 1px 1px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  letter-spacing: 2.5px;
+  font-family: 'Roboto',sans-serif;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin: 0;
+  border: none;
+  padding: .5rem 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.button-20:focus:not(:focus-visible),
+.button-20:focus {
+  outline: 0;
+}
+
+.button-20:hover {
+  background-color: #cd2572;
+  border-color: #c521a6;
+  transform: scale(1.05);
+  box-shadow: 0px 15px 20px rgba(211, 38, 115, 0.4);
+}
+
+
+.button-20:focus {
+  background-color: #cd2572;
+  border-color: #c521a6;
+  box-shadow: rgba(255, 255, 255, 0.15) 0 1px 0 inset, rgba(46, 54, 80, 0.075) 0 1px 1px, rgba(104, 101, 235, 0.5) 0 0 0 .2rem;
+}
+
+.button-20:active {
+  background-color: #cd2572;
+  background-image: none;
+  border-color: #c521a6;
+  box-shadow: rgba(46, 54, 80, 0.125) 0 3px 5px inset;
+}
+
+.button-20:active:focus {
+  box-shadow: rgba(46, 54, 80, 0.125) 0 3px 5px inset, rgba(215, 101, 235, 0.5) 0 0 0 .2rem;
+}
+
+.button-20:disabled {
+  background-image: none;
+  box-shadow: none;
+  opacity: .65;
+  pointer-events: none;
+}
+
+
+a.plus:link {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+  text-transform: uppercase;
+ 
+}
+
+a.plus:visited {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a.plus:hover {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+a.plus:active {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
     </style>
 </head>
 
@@ -71,11 +247,24 @@
     <!-- Include your navigation menu if needed -->
     {% include 'nav_menu.html' %}
 
-    <div class="container mt-5">
+    <div class="container mt-5"><center>           
         <div class="row">
-            <div class="col-md-10 offset-md-1">
-                <h2>Flashcards</h2>
+            <div class="col-md-10 offset-md-1 ">
+                <h2>Your Flashcards</h2>
+                <h5> Return to Home.</h5>
                 <div class="row" style="height: 200px;">
+
+                    <!-- code for add card starts -->
+                    <div class="col-md-4 mt-4">
+                        <div class="card-add">
+                        <div class="card-body">
+                          <!-- <h5 class="card-title"> -->
+                          <h4 class="card-text">Add Card</h4>
+                          <button class="button-20"><a class="plus" href="/create_card">+</a></button>
+                        </div>
+                      </div>
+                    </div>
+
                     <!-- Sample cards loop -->
                     {% for card in cards %}
                     <div class="col-md-4 mt-4 card-flip">
@@ -89,9 +278,11 @@
                             </div>
                             <div class="card-back">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ card.english }}</h5>
+                                    
+                                    <h5 class="card-text">{{ card.english }}</h5>
+                                    <!-- pronunciation button -->
+                                    <button class="button-20 speakButton">Pronunciation</button>
                                     <!-- Trash can logo (delete button) -->
-                                    <button class="tts" onclick="deleteCard(event)">Pronunciation</button>
                                     <button class="delete-button" onclick="deleteCard(event)">&#128465;</button>
                                 </div>
                             </div>
@@ -101,11 +292,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div></center>
 
     <!-- Include your JavaScript libraries -->
     <!-- <script src="your-js-libraries.js"></script> -->
-
+   
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -136,7 +327,48 @@
             console.log("Playing Sounds");
         }le.log("Card deleted.");
         }
+
+// Initialize a SpeechSynthesisUtterance object
+const speech = new SpeechSynthesisUtterance();
+
+// Function to set the voice with the specified language and variant
+function setSpanishUSVoice() {
+  const voices = window.speechSynthesis.getVoices();
+  for (const voice of voices) {
+    if (voice.lang === "es-US") {
+      speech.voice = voice;
+      break;
+    }
+  }
+}
+
+// Set Speech Language
+speech.lang = "es-US"; // Change to your desired language
+
+// Function to speak the text
+function speakText(text) {
+speech.text = text;
+window.speechSynthesis.speak(speech);
+}
+
+// Get all the buttons with the "speakButton" class
+const speakButtons = document.querySelectorAll(".speakButton");
+
+// Add a click event listener to each button
+speakButtons.forEach(button => {
+button.addEventListener("click", () => {
+  const card = button.closest(".card");
+  const textToSpeak = card.querySelector(".card-text").textContent;
+  speakText(textToSpeak);
+});
+});
     </script>
+
+<div class="custom-shape-divider-bottom-1694687427">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 220" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+    </svg>
+</div>
 </body>
 
 </html>

@@ -218,6 +218,32 @@ a.two:active {
   text-decoration: none;
 }
 
+a.logout:link {
+  color: #932687;
+  background-color: transparent;
+  text-decoration: none;
+  
+}
+
+a.logout:visited {
+  color: #932687;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a.logout:hover {
+  color: #000;
+  background-color: transparent;
+  text-decoration: none;
+  
+}
+
+a.logout:active {
+  color:#932687;
+  background-color: transparent;
+  text-decoration: none;
+}
+
 
     </style>
 </head>
@@ -232,7 +258,7 @@ a.two:active {
         <h2>Language Learning Simplified.</h2>
        
         {% if user_logged_in %}
-            <p>Welcome <b>{{ first_name }} {{ last_name }}.</b></p> 
+            <p>You are signed in as <b>{{ first_name }} {{ last_name }}.</b><br> Not You? <a class="logout" href="/logout">Log out</a>.</p> 
             
                 <div class="container">
                   <div class="row">
