@@ -6,6 +6,8 @@ This project was built with Bootstrap, Custom CSS, Javascript, Python, and Mongo
 ```
 -- Simply run the mongo_app.py file.
 ```
+
+
 ### Run the app in the development mode.
 ```
 Open [http://localhost:5001](http://localhost:5001/index) to view it in your browser.
@@ -18,3 +20,4 @@ Open [http://localhost:5001](http://localhost:5001/index) to view it in your bro
 - Delete Flashcards
 - Add Quizzes
 
+<img src="https://github.com/kirstiex/LanguageLearning/blob/main/Platform/static/images/demo.gif" />
